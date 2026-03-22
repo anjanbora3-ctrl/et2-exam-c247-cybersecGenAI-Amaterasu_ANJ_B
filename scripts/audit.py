@@ -57,6 +57,7 @@ def audit_dependencies():
     return results
 
 def generate_report(infra_results, dep_results):
+    os.makedirs('reports', exist_ok=True)
     report = {
         'summary': {
             'exposed_services': len([r for r in infra_results if r['risk'] == 'Publicly Exposed Server']),
